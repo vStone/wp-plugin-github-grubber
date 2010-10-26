@@ -11,7 +11,7 @@ require(dirname(__FILE__) . '/lib/grubber.php');
 class GitGrubber extends WP_Widget {
 
 	function GitGrubber() {
-		$wops = array('description' =>  __('Put a poll that you have added in WP-Polls on your sidebar'));
+		$wops = array('description' =>  __('Display a GitHub users public repositories!'));
 		parent::WP_Widget(false, $name = __('Git Grubber'), $wops);	
 	}
 
