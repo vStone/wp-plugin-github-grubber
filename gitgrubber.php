@@ -11,35 +11,56 @@ require(dirname(__FILE__) . '/lib/grubber.php');
 class GitGrubber extends WP_Widget {
 
 	function GitGrubber() {
-		parent::WP_Widget(false, $name = 'Git Grubber');	
+		$wops = array('description' =>  __('Put a poll that you have added in WP-Polls on your sidebar'));
+		parent::WP_Widget(false, $name = __('Git Grubber'), $wops);	
 	}
 
 	function form($instance) {
 		$title = self::get_title($instance);
 		$username = self::get_username($instance);
+		$project_count = self::get_project_count($instance);
+
 		?>
 	    	<p>
-				<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?> 
+				<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?> </label>
 					<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" 
 					name="<?php echo $this->get_field_name('title'); ?>" type="text" 
 					value="<?php echo $title; ?>" />
-				</label>
-				<label for="<?php echo $this->get_field_id('username'); ?>"><?php _e('Username:'); ?> 
+			</p>
+			<p>
+				<label for="<?php echo $this->get_field_id('username'); ?>"><?php _e('GitHub Username:'); ?> </label>
 					<input class="widefat" id="<?php echo $this->get_field_id('username'); ?>" 
 					name="<?php echo $this->get_field_name('username'); ?>" type="text" 
 					value="<?php echo $username; ?>" />
-				</label>
+			</p>
+			<p>
+				<label for="<?php echo $this->get_field_id('project_count'); ?>"><?php _e('Number of projects to show:'); ?> </label>
+					<input id="<?php echo $this->get_field_id('project_count'); ?>" 
+					name="<?php echo $this->get_field_name('project_count'); ?>" type="text" 
+					value="<?php echo $project_count; ?>" size="3" />
 			</p>
 	    <?php
 	}
 
 	function update($new_instance, $old_instance) {
 		$instance = $old_instance;
-		$instance['title'] = strip_tags($new_instance['title']);
-		$instance['username'] = strip_tags($new_instance['username']);
+		
+		$clean_title = strip_tags(trim($new_instance['title']));
+		if (strlen($clean_title) > 0)  
+			$instance['title'] = $clean_title;
+	
+		$clean_username = str_replace(' ', '', strip_tags(trim($new_instance['username'])));
+		if (strlen($clean_username) > 0)  
+			$instance['username'] = $clean_username;
+		
+		$clean_project_count = strip_tags(trim($project_count));
+		if(is_numeric($clean_project_count))
+			$instance['project_count'] = $clean_project_count;
+			
 		return $instance;
 	}
-
+	
+	
 	function widget($args, $instance) {
 		extract($args);	
 		
@@ -56,20 +77,26 @@ class GitGrubber extends WP_Widget {
 		if($repositories == null) {
 			echo $username . ' does not have any public repositories.';
 		} else {
-			foreach ($repositories->repository as $repository) {
-			  echo '<a href="'. $repository->url . '">' . $repository->name . '</a><br />';
+			$projs_to_disp = min(count($repositories->repository), self::get_project_count($instance));
+			echo '<div class"block"><ul>';
+			for ($i=0; $i < $projs_to_disp; $i++) { 
+				echo '<li><a href="'. $repositories->repository[$i]->url . '">' . $repositories->repository[$i]->name . '</a></li>';
 			}
+			echo '</ul></div>';
 		}
 		echo $after_widget;
 	}
 	
 	private function get_title($instance) {
-		return empty($instance['title']) ? 'My GitHub Repositories' : apply_filters('widget_title', $instance['title']);
+		return empty($instance['title']) ? 'My GitHub Projects' : apply_filters('widget_title', $instance['title']);
 	}
 	
 	private function get_username($instance) {
-		return empty($instance['username']) ? '' : $instance['username'];
+		return empty($instance['username']) ? 'owenbyrne' : $instance['username'];
 	}
-
+	
+	private function get_project_count($instance) {
+		return empty($instance['project_count']) ? 5 : $instance['project_count'];
+	}
 }
 add_action('widgets_init', create_function('', 'return register_widget("GitGrubber");'));

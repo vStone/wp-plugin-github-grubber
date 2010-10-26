@@ -22,6 +22,4 @@ class GrubberTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals('http://github.com/api/v1/xml/owenbyrne', $grubber->github_api_url());
 	}
 }
-
-
 ?>
