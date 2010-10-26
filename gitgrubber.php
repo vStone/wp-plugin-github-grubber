@@ -53,10 +53,12 @@ class GitGrubber extends WP_Widget {
 		if (strlen($clean_username) > 0)  
 			$instance['username'] = $clean_username;
 		
-		$clean_project_count = strip_tags(trim($project_count));
+		$clean_project_count = strip_tags(trim($new_instance['project_count']));
 		if(is_numeric($clean_project_count))
 			$instance['project_count'] = $clean_project_count;
-			
+		
+		$grubber = new Grubber($clean_username);
+		$grubber->update();
 		return $instance;
 	}
 	
@@ -71,16 +73,15 @@ class GitGrubber extends WP_Widget {
 		echo $before_title . $title . $after_title;
 		
 		$grubby = new Grubber($username);
-		$grubby->grub();
 		$repositories = $grubby->get_repositories();
-
-		if($repositories == null) {
+		
+		if($repositories == null || count($repositories) == 0) {
 			echo $username . ' does not have any public repositories.';
 		} else {
-			$projs_to_disp = min(count($repositories->repository), self::get_project_count($instance));
+			$projs_to_disp = min(count($repositories), self::get_project_count($instance));
 			echo '<div class"block"><ul>';
 			for ($i=0; $i < $projs_to_disp; $i++) { 
-				echo '<li><a href="'. $repositories->repository[$i]->url . '">' . $repositories->repository[$i]->name . '</a></li>';
+		 		echo '<li><a href="'. $repositories[$i]['url'] . '">' . $repositories[$i]['name'] . '</a></li>';
 			}
 			echo '</ul></div>';
 		}
