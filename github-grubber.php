@@ -1,18 +1,18 @@
 <?php
 /**
- * Plugin Name: Git Grubber
- * Plugin URI: http://whoisowenbyrne.com/test-plugin
+ * Plugin Name: GitHub Grubber
+ * Plugin URI: http://whoisowenbyrne.com/github-grubber
  * Description: Display a users public GitHub repositories
  * Author: Owen Byrne
  * Author URI: http://whoisowenbyrne.com
  * Version: 1.0
  */
 require(dirname(__FILE__) . '/lib/grubber.php');
-class GitGrubber extends WP_Widget {
+class GitHubGrubber extends WP_Widget {
 
-	function GitGrubber() {
+	function GitHubGrubber() {
 		$wops = array('description' =>  __('Display a GitHub users public repositories!'));
-		parent::WP_Widget(false, $name = __('Git Grubber'), $wops);	
+		parent::WP_Widget(false, $name = __('GitHub Grubber'), $wops);	
 	}
 
 	function form($instance) {
@@ -100,4 +100,4 @@ class GitGrubber extends WP_Widget {
 		return empty($instance['project_count']) ? 5 : $instance['project_count'];
 	}
 }
-add_action('widgets_init', create_function('', 'return register_widget("GitGrubber");'));
+add_action('widgets_init', create_function('', 'return register_widget("GitHubGrubber");'));
