@@ -5,7 +5,7 @@
 require dirname(__FILE__) . '/cache.php';
 class Grubber
 {
-	const github_api_base = 'http://github.com/api/v1/xml/';
+	const github_api_base = 'http://github.com/api/v2/xml/repos/show/';
 	private $username = null;
 	private $cache = null;
 	public function Grubber($uname = 'owenbyrne') {
@@ -15,8 +15,7 @@ class Grubber
 	
 	public function grub() {
 		if((($contents = @file_get_contents($this->github_api_url())) == true)) {
-		 	$response = new SimpleXMLElement($contents);
-			return $response->repositories;
+		 	return new SimpleXMLElement($contents);
 		}
 		return null;
 	}
@@ -32,7 +31,7 @@ class Grubber
 			$repositories = $this->grub();
 			
 			$clean_repos = array();
-			foreach ($repositories->repository as $repository) {
+			foreach ($repositories as $repository) {
 				$repo = array();
 				foreach ($repository->children() as $key => $value) {
 					$repo[$key] = (string) $value;

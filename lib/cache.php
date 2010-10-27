@@ -25,7 +25,7 @@ class Cache
 	public function set($repositories)
 	{
 		try {
-				file_put_contents($this->cache_file, serialize($repositories));
+			@file_put_contents($this->cache_file, serialize($repositories));
 		} catch (Exception $e) {
 			// probably no permission
 		}
@@ -34,7 +34,7 @@ class Cache
 	public function clear()
 	{
 		try {
-			unlink($this->cache_file);
+			@unlink($this->cache_file);
 		} catch (Exception $e) {
 			// boo! have to wait for the timeout :(
 		}
