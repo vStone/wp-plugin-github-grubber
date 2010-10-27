@@ -74,7 +74,6 @@ class GitHubGrubber extends WP_Widget {
 		
 		$grubby = new Grubber($username);
 		$repositories = $grubby->get_repositories();
-		
 		if($repositories == null || count($repositories) == 0) {
 			echo $username . ' does not have any public repositories.';
 		} else {
@@ -85,6 +84,8 @@ class GitHubGrubber extends WP_Widget {
 			}
 			echo '</ul></div>';
 		}
+		
+		echo '<small><a href="https://github.com/users/follow?target=' . $username . '">Follow '. $username  . ' on GitHub</a></small>';
 		echo $after_widget;
 	}
 	
