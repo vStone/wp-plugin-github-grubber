@@ -5,7 +5,7 @@ Requires at least: 2.8
 Tested up to: 3.0.1
 Stable tag: 1.0
 
-GitHub Grubber displays public GitHub repositories in WordPress.
+GitHub Grubber displays public GitHub repositories in WordPress.  More information can be found at: http://whoisowenbyrne.com/github-grubber
 
 == Description ==
 
