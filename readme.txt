@@ -24,7 +24,7 @@ Installation and setup are straight forward:
 1. Ensure that `GitHub_Grubber/cache` is writeable
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Use the Appearance -> Widgets screen to place the GitHub Grubber Widget in the desired widget area
-1. Configure the widget title, username and display count then click `save`.
+1. Configure the widget title, username and display count then click `save`
 1. Enjoy!
 
 == Frequently Asked Questions ==
