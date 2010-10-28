@@ -1,8 +1,9 @@
 <?php
-
 /**
-* 
-*/
+ * GrubberTest
+ * Author: Owen Byrne
+ * Author URI: http://whoisowenbyrne.com
+ */
 require dirname(__FILE__) . '/../lib/grubber.php';
 
 class GrubberTest extends PHPUnit_Framework_TestCase {

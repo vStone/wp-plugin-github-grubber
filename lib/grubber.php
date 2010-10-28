@@ -1,7 +1,9 @@
 <?php
 /**
-* 
-*/
+ * Grubber
+ * Author: Owen Byrne
+ * Author URI: http://whoisowenbyrne.com
+ */
 require dirname(__FILE__) . '/cache.php';
 class Grubber
 {

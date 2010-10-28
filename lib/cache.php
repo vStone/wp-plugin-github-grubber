@@ -1,7 +1,9 @@
 <?php
 /**
-* 
-*/
+ * Cache
+ * Author: Owen Byrne
+ * Author URI: http://whoisowenbyrne.com
+ */
 class Cache 
 {
 	private $cache_file = null;
