@@ -1,0 +1,58 @@
+=== GitHub Grubber ===
+Contributors: wiob
+Tags: github, git, repositories, projects
+Requires at least: 2.8
+Tested up to: 3.0.1
+Stable tag: 1.0
+
+GitHub Grubber displays public GitHub repositories in WordPress.
+
+== Description ==
+
+GitHub Grubber displays public GitHub repositories in WordPress. GitHub Grubber includes an integrated widget for easy setup and customisation requiring no code changes.
+
+Features:
+
+* Integrated widget for easy setup and customisation
+* Caching for improved performance
+* GitHub V2 API support
+
+== Installation ==
+Installation and setup are straight forward:
+
+1. Upload `GitHub_Grubber` to the `/wp-content/plugins/` directory
+1. Ensure that `GitHub_Grubber/cache` is writeable
+1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Use the Appearance -> Widgets screen to place the GitHub Grubber Widget in the desired widget area
+1. Configure the widget title, username and display count then click `save`.
+1. Enjoy!
+
+== Frequently Asked Questions ==
+
+= I have a question =
+
+See the Contact section below.
+
+= I have a feature request =
+
+See the Contact section below.
+
+== Screenshots ==
+Coming soon...
+
+== Changelog ==
+
+= 1.0 =
+* Stable release.
+
+== Upgrade Notice ==
+COming soon...
+
+== Contact ==
+[GitHub](http://github.com/owenbyrne/GitHub-Grubber)
+[http://whoisowenbyrne.com](http://whoisowenbyrne.com/github-grubber)
+Email: owen@whoisowenbyrne.com
+
+== Contribute ==
+
+Any contributions to GitHub Grubber are greatly appreciated.  You can access the [code on GitHub](http://github.com/owenbyrne/GitHub-Grubber), send me a pull request with any enhancements :)
