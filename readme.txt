@@ -20,8 +20,8 @@ Features:
 == Installation ==
 Installation and setup are straight forward:
 
-1. Upload `GitHub_Grubber` to the `/wp-content/plugins/` directory
-2. Ensure that `GitHub_Grubber/cache` is writeable
+1. Upload `GitHub-Grubber` to the `/wp-content/plugins/` directory
+2. Ensure that `GitHub-Grubber/cache` is writeable
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Use the Appearance -> Widgets screen to place the GitHub Grubber Widget in the desired widget area
 5. Configure the widget title, username and display count then click `save`
@@ -46,7 +46,7 @@ Coming soon...
 * Stable release.
 
 == Upgrade Notice ==
-COming soon...
+Coming soon...
 
 == Contact ==
 [GitHub](http://github.com/owenbyrne/GitHub-Grubber)
