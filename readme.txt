@@ -3,7 +3,7 @@ Contributors: wiob
 Tags: github, git, repositories, projects
 Requires at least: 2.8
 Tested up to: 3.0.1
-Stable tag: 1.0
+Stable tag: 1.1
 
 GitHub Grubber displays public GitHub repositories in WordPress.  More information can be found at: http://whoisowenbyrne.com/github-grubber
 

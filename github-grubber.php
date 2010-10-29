@@ -5,7 +5,7 @@
  * Description: Display a users public GitHub repositories
  * Author: Owen Byrne
  * Author URI: http://whoisowenbyrne.com
- * Version: 1.0
+ * Version: 1.1
  */
 require(dirname(__FILE__) . '/lib/grubber.php');
 class GitHubGrubber extends WP_Widget {
