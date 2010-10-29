@@ -42,16 +42,22 @@ Coming soon...
 
 == Changelog ==
 
+= 1.1 =
+* Fixed follow on GitHub link
+
 = 1.0 =
 * Stable release.
 
 == Upgrade Notice ==
-Coming soon...
+
+= 1.1 =
+* This version fixes the follow on GitHub link in the widget
 
 == Contact ==
-[GitHub](http://github.com/owenbyrne/GitHub-Grubber)
-[http://whoisowenbyrne.com](http://whoisowenbyrne.com/github-grubber)
-Email: owen@whoisowenbyrne.com
+
+* [GitHub](http://github.com/owenbyrne/GitHub-Grubber)
+* [http://whoisowenbyrne.com](http://whoisowenbyrne.com/github-grubber)
+* Email: owen@whoisowenbyrne.com
 
 == Contribute ==
 

@@ -85,7 +85,7 @@ class GitHubGrubber extends WP_Widget {
 			echo '</ul></div>';
 		}
 		
-		echo '<small><a href="https://github.com/users/follow?target=' . $username . '">Follow '. $username  . ' on GitHub</a></small>';
+		echo '<small><a href="https://github.com/' . $username . '">Follow '. $username  . ' on GitHub</a></small>';
 		echo $after_widget;
 	}
 	
