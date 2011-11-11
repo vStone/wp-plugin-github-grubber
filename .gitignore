@@ -1,3 +1,7 @@
+## Cache file
+cache/grubby.cache
+
+## Editor files
 .DS_Store
 *.swp
 tmp/*
