@@ -116,9 +116,11 @@ class GitHubGrubber extends WP_Widget {
 		 		echo '<li><a href="'. $repositories[$i]['url'] . '">' . $repositories[$i]['name'] . '</a></li>';
 			}
 			echo '</ul></div>';
-		}
-		
+		}	
 		echo '<small><a href="http://github.com/' . $username . '">Follow '. $username  . ' on GitHub</a></small>';
+		if (current_user_can('manage_options')) {
+			printf('<pre>%s</pre>', print_r($repositories,TRUE));
+		}
 		echo $after_widget;
 	}
 	
