@@ -48,7 +48,7 @@ class GitHubGrubber extends WP_Widget {
         <select class="widefat" id="<?php echo $this->get_field_id('sort_field'); ?>"
           name="<?php echo $this->get_field_name('sort_field'); ?>">
 <?php foreach ($sortable_fields as $key => $value) {  ?>
-          <option value=<?php echo $key; ?><?php echo ($key == $sort_field) ? ' selected="selected"' : '' ?>><?php echo $value; ?></option>
+          <option value=<?php echo $key; ?><?php echo ($key == $sort_field) ? ' selected="selected"' : '' ?>><?php echo $value['desc']; ?></option>
 <?php } ?>
         </select>
       </p>
@@ -147,10 +147,10 @@ class GitHubGrubber extends WP_Widget {
 	private function get_sortable_fields() {
     return array(
       'name'        => array ('desc' => 'Name',                  'sort' => SORT_STRING, ),
-      'created-at'  => array ('desc' => 'Project creation date', 'sort' => SORT_NORMAL, ),
-      'pushed-at'   => array ('desc' => 'Last push date',        'sort' => SORT_NORMAL, ),
+      'created-at'  => array ('desc' => 'Project creation date', 'sort' => SORT_REGULAR, ),
+      'pushed-at'   => array ('desc' => 'Last push date',        'sort' => SORT_REGULAR, ),
       'open-issues' => array ('desc' => 'Open issue count',      'sort' => SORT_NUMERIC, ),
-      'language'    => array ('desc' => 'Project language',      'sort' => SORT_NORMAL, ),
+      'language'    => array ('desc' => 'Project language',      'sort' => SORT_REGULAR, ),
       'size'        => array ('desc' => 'Codebase size',         'sort' => SORT_NUMERIC, ),
       'watchers'    => array ('desc' => 'Number of watchers',    'sort' => SORT_NUMERIC, ),
       'forks'       => array ('desc' => 'Number of forks',       'sort' => SORT_NUMERIC, ),
