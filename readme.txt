@@ -2,8 +2,8 @@
 Contributors: wiob
 Tags: github, git, repositories, projects
 Requires at least: 2.8
-Tested up to: 3.0.1
-Stable tag: 1.1
+Tested up to: 3.3.1
+Stable tag: 1.2
 
 GitHub Grubber displays public GitHub repositories in WordPress.  More information can be found at: http://whoisowenbyrne.com/github-grubber
 
@@ -16,6 +16,7 @@ Features:
 * Integrated widget for easy setup and customisation
 * Caching for improved performance
 * GitHub V2 API support
+* Sort your github repositories
 
 == Installation ==
 Installation and setup are straight forward:
@@ -41,6 +42,9 @@ See the Contact section below.
 Coming soon...
 
 == Changelog ==
+
+= 1.2 =
+* Added sorting of repositories
 
 = 1.1 =
 * Fixed follow on GitHub link
