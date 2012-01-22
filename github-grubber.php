@@ -107,6 +107,9 @@ class GitHubGrubber extends WP_Widget {
 		
 		$grubby = new Grubber($username);
 		$repositories = $grubby->get_repositories();
+
+		self::sort_repositories($repositories, $instance);
+
 		if($repositories == null || count($repositories) == 0) {
 			echo $username . ' does not have any public repositories.';
 		} else {
@@ -118,9 +121,6 @@ class GitHubGrubber extends WP_Widget {
 			echo '</ul></div>';
 		}	
 		echo '<small><a href="http://github.com/' . $username . '">Follow '. $username  . ' on GitHub</a></small>';
-		if (current_user_can('manage_options')) {
-			printf('<pre>%s</pre>', print_r($repositories,TRUE));
-		}
 		echo $after_widget;
 	}
 	
@@ -155,6 +155,24 @@ class GitHubGrubber extends WP_Widget {
       'watchers'    => array ('desc' => 'Number of watchers',    'sort' => SORT_NUMERIC, ),
       'forks'       => array ('desc' => 'Number of forks',       'sort' => SORT_NUMERIC, ),
     );
+	}
+
+  private function sort_repositories(&$repositories, $instance) {
+    $sort_fields = self::get_sortable_fields();
+    $sort_field = self::get_sort_field($instance);
+    $sort_order = self::get_sort_order($instance);
+
+    if (!isset($sort_fields[$sort_field])) {
+      return FALSE;
+    }
+
+    $sort_type = $sort_fields[$sort_field]['sort'];
+    $sort_order = ($sort_order == 'asc') ? SORT_ASC : SORT_DESC;
+    foreach ($repositories as $repo) {
+      $sort_arr[] = ($sort_type == SORT_STRING) ? strtolower($repo[$sort_field]) : $repo[$sort_field];
+    }
+    array_multisort($sort_arr, $sort_order, $sort_type, $repositories);
   }
+
 }
 add_action('widgets_init', create_function('', 'return register_widget("GitHubGrubber");'));
